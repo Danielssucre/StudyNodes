@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+*.log
+study_dashboard/server.log
+current_session.json
+.gemini/
+.agents/
+node_modules/
+dist/
+build/
+.env
+*.gguf
+*.db

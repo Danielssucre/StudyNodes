@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARTA DE BATALLA | SRS</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Medical Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Mermaid for Flowcharts (Pinned Stable Version) -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.0/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            securityLevel: 'loose',
+            flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-shield-virus"></i> BATTLE CARDS
+            </div>
+            <div class="header-stats">
+                <div class="stat-item"><i class="fa-solid fa-folder-plus"></i> <span id="stat-gen">--</span></div>
+                <div class="stat-item"><i class="fa-solid fa-hourglass-start"></i> <span id="stat-due">--</span></div>
+                <div class="stat-item"><i class="fa-solid fa-calendar-day"></i> <span id="stat-days">--</span>d</div>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <main id="main-layout">
+            <!-- Left: Card Display -->
+            <section id="card-display" class="card-display-area">
+                <!-- Header with topic title -->
+                <div class="card-header">
+                    <h1 id="topic-title">Cargando...</h1>
+                </div>
+
+                <!-- STEP 1: VIGNETTE -->
+                <div id="step-vignette" class="study-step fade-in">
+                    <div class="vignette-box">
+                        <div class="icon-trap">🚨 LA TRAMPA CLINICA</div>
+                        <div id="vignette-content" class="markdown-body"></div>
+                    </div>
+                    <button id="btn-unlock-foundation" class="btn-unlock">
+                        <i class="fa-solid fa-microscope"></i> CIMENTAR CIENCIA DE BASE
+                    </button>
+                </div>
+
+                <!-- STEP 2: FOUNDATION (Hidden) -->
+                <div id="step-foundation" class="study-step locked hidden">
+                    <div class="foundation-box">
+                        <div class="section-badge">🔬 CIENCIA DE BASE</div>
+                        <div id="foundation-content" class="markdown-body"></div>
+                    </div>
+                    <button id="btn-unlock-algorithm" class="btn-unlock">
+                        <i class="fa-solid fa-tree"></i> REVELAR ALGORITMO MENTAL
+                    </button>
+                </div>
+
+                <!-- STEP 3: ALGORITHM (Hidden) -->
+                <div id="step-algorithm" class="study-step locked hidden">
+                    <div class="algorithm-box">
+                        <div class="section-badge">🌳 ÁRBOL DE DECISIÓN (LÓGICA CLÍNICA)</div>
+                        <div id="algorithm-mermaid" class="mermaid-container"></div>
+                        <div id="algorithm-content" class="markdown-body"></div>
+                    </div>
+                    <button id="btn-unlock-keys" class="btn-unlock">
+                        <i class="fa-solid fa-key"></i> VER LLAVES MAESTRAS y PERLAS
+                    </button>
+                </div>
+
+                <!-- STEP 4: KEYS & PEARLS (Hidden) -->
+                <div id="step-keys" class="study-step locked hidden">
+                    <div class="keys-box">
+                        <div class="section-badge">🔑 LLAVES MAESTRAS</div>
+                        <div id="keys-content" class="markdown-body"></div>
+
+                        <div class="pearls-section">
+                            <div class="pearls-header"><i class="fa-solid fa-lightbulb"></i> PERLAS CLÍNICAS
+                                (JUSTIFICACIÓN)</div>
+                            <div id="pearls-content" class="markdown-body"></div>
+                        </div>
+                    </div>
+                    <button id="btn-unlock-mcq" class="btn-unlock">
+                        <i class="fa-solid fa-vial"></i> ENFRENTAR SIMULACRO
+                    </button>
+                </div>
+
+                <!-- STEP 5: MCQ (Hidden) -->
+                <div id="step-mcq" class="study-step locked hidden">
+                    <div id="mcq-container" class="mcq-box">
+                        <h3><i class="fa-solid fa-vial"></i> CHECK POINT (RETO FINAL)</h3>
+                        <p id="mcq-question"></p>
+                        <div id="mcq-options" class="mcq-options"></div>
+                        <div id="mcq-feedback" class="mcq-feedback hidden"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 6: SRS (Hidden until MCQ answered) -->
+                <div id="step-srs" class="study-step locked hidden">
+                    <div class="srs-header">¿QUÉ TAN BIEN DOMINAS ESTA BATALLA?</div>
+                    <div class="srs-controls">
+                        <button class="btn-srs again" onclick="submitReview(1)">
+                            <span class="label">FALLÉ</span>
+                            <span class="sub">
+                                < 1 min</span>
+                        </button>
+                        <button class="btn-srs hard" onclick="submitReview(2)">
+                            <span class="label">DIFÍCIL</span>
+                            <span class="sub">2 días</span>
+                        </button>
+                        <button class="btn-srs good" onclick="submitReview(3)">
+                            <span class="label">BIEN</span>
+                            <span class="sub">4 días</span>
+                        </button>
+                        <button class="btn-srs easy" onclick="submitReview(4)">
+                            <span class="label">FÁCIL</span>
+                            <span class="sub">7 días</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right: Roadmap -->
+            <aside id="roadmap-side" class="collapsed">
+                <button id="btn-toggle-roadmap" class="toggle-btn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="roadmap-header">
+                    <h3><i class="fa-solid fa-map-location-dot"></i> RUTA DEL ÉXITO</h3>
+                </div>
+                <div id="roadmap-container" class="roadmap-grid">
+                    <!-- Dots will appear here -->
+                </div>
+                <div class="roadmap-legend">
+                    <span class="leg-item"><i class="dot red"></i> Urgente</span>
+                    <span class="leg-item"><i class="dot yellow"></i> Nuevo</span>
+                    <span class="leg-item"><i class="dot blue"></i> Aprendiendo</span>
+                    <span class="leg-item"><i class="dot green"></i> Maestro</span>
+                </div>
+            </aside>
+        </main>
+
+    </div>
+
+    <!-- Minimum Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

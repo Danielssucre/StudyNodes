@@ -1,0 +1,1465 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Ley 1751\n(Bio\u00e9tica)",
+            "group": "mastered",
+            "title": "Dominado: Beneficencia vs Justicia"
+        },
+        {
+            "id": 2,
+            "label": "Falla Card\u00edaca\n(4 Fant\u00e1sticos)",
+            "group": "mastered",
+            "title": "Dominado: iSGLT2, ARNI, BB, ARM"
+        },
+        {
+            "id": 3,
+            "label": "Cetoacidosis\n(Potasio)",
+            "group": "mastered",
+            "title": "Dominado: K < 3.3 = NO Insulina"
+        },
+        {
+            "id": 4,
+            "label": "Dengue\n(L\u00edquidos)",
+            "group": "mastered",
+            "title": "Dominado: 10cc/kg Bolos"
+        },
+        {
+            "id": 5,
+            "label": "Asma\n(MART)",
+            "group": "mastered",
+            "title": "Dominado: ICS/Formoterol Rescate"
+        },
+        {
+            "id": 6,
+            "label": "Estatus Epil\u00e9ptico\n(Benzos)",
+            "group": "mastered",
+            "title": "Dominado: Lorazepam IV / Midazolam IM"
+        },
+        {
+            "id": 7,
+            "label": "Estatus Refractario\n(Tiopental)",
+            "group": "mastered",
+            "title": "Dominado: Coma Barbit\u00farico"
+        },
+        {
+            "id": 8,
+            "label": "Lupus\n(Anti-Sm)",
+            "group": "mastered",
+            "title": "Dominado: Anti-Smith = Espec\u00edfico"
+        },
+        {
+            "id": 9,
+            "label": "Apendicitis\n(Alvarado)",
+            "group": "mastered",
+            "title": "Dominado: Dolor FID/Leucos = 2 pts"
+        },
+        {
+            "id": 10,
+            "label": "Preeclampsia\n(Severidad)",
+            "group": "mastered",
+            "title": "Dominado: Vasoespasmo = SEVERA"
+        },
+        {
+            "id": 99,
+            "label": "Toxicidad\n(Magnesio)",
+            "group": "mastered",
+            "title": "Dominado: Gluconato de Calcio"
+        },
+        {
+            "id": 11,
+            "label": "Reanimaci\u00f3n\nNeo",
+            "group": "mastered",
+            "title": "Dominado: VPP es lo PRIMERO"
+        },
+        {
+            "id": 12,
+            "label": "C\u00d3DIGO ROJO\n(4T)",
+            "group": "mastered",
+            "title": "Dominado: Oxitocina >>> Todo"
+        },
+        {
+            "id": 13,
+            "label": "iSGLT2\n(Indicaci\u00f3n)",
+            "group": "mastered",
+            "title": "Dominado: TFG > 20-25 ml/min"
+        },
+        {
+            "id": 14,
+            "label": "Dengue Grave\n(INS)",
+            "group": "mastered",
+            "title": "Dominado: Choque = 20cc/kg R\u00e1pido"
+        },
+        {
+            "id": 98,
+            "label": "Signos Alarma\n(Dengue)",
+            "group": "mastered",
+            "title": "Dominado: Dolor Abdominal"
+        },
+        {
+            "id": 15,
+            "label": "ARTICULO 17\n(Autonom\u00eda)",
+            "group": "mastered",
+            "title": "Dominado: Autonom\u00eda > Beneficencia"
+        },
+        {
+            "id": 16,
+            "label": "ADA 2024\n(Insulina)",
+            "group": "mastered",
+            "title": "Dominado: HbA1c > 10% = Insulina"
+        },
+        {
+            "id": 17,
+            "label": "ASMA (SABA)\n(Prohibici\u00f3n)",
+            "group": "mastered",
+            "title": "Dominado: SABA solo = Muerte"
+        },
+        {
+            "id": 18,
+            "label": "VIH (PrEP)\n(Truvada)",
+            "group": "mastered",
+            "title": "Dominado: Tenofovir + Emtricitabina"
+        },
+        {
+            "id": 19,
+            "label": "Estado Hiperosmolar\n(HHS)",
+            "group": "mastered",
+            "title": "Dominado: Insulina Residual frena Lip\u00f3lisis"
+        },
+        {
+            "id": 20,
+            "label": "Guillain-Barr\u00e9\n(LCR)",
+            "group": "mastered",
+            "title": "Dominado: Disociaci\u00f3n = +Prote\u00ednas -C\u00e9lulas"
+        },
+        {
+            "id": 21,
+            "label": "Artritis Reumatoide\n(Anti-CCP)",
+            "group": "mastered",
+            "title": "Dominado: Anti-CCP Especificidad >95%"
+        },
+        {
+            "id": 22,
+            "label": "Colecistitis\n(Tokyo)",
+            "group": "mastered",
+            "title": "Dominado: Antibi\u00f3tico temprano (<72h)"
+        },
+        {
+            "id": 23,
+            "label": "EDA (Hidrataci\u00f3n)\n(Plan B)",
+            "group": "mastered",
+            "title": "Dominado: Plan B (SRO Oral)"
+        },
+        {
+            "id": 24,
+            "label": "PAI 2025\n(Vacunas)",
+            "group": "mastered",
+            "title": "\u26a0\ufe0f OBJETIVO: Los nuevos cambios"
+        },
+        {
+            "id": 25,
+            "label": "Feminicidio",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
+            "mastery_level": 3
+        },
+        {
+            "id": 100,
+            "label": "Ley Estatutaria 1751",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
+            "sprint_day": 1,
+            "priority": 100,
+            "mastery_level": 3
+        },
+        {
+            "id": 101,
+            "label": "Falla Card\u00edaca (HFrEF)",
+            "group": "active",
+            "title": "\u26a0\ufe0f OBJETIVO ACTUAL",
+            "sprint_day": 1,
+            "priority": 100,
+            "mastery_level": 2
+        },
+        {
+            "id": 102,
+            "label": "Dengue (INS 2024)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 1 \u2014 22/02 | Prioridad 100",
+            "sprint_day": 1,
+            "priority": 100
+        },
+        {
+            "id": 103,
+            "label": "CAD (Cetoacidosis)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 1 \u2014 22/02 | Prioridad 100",
+            "sprint_day": 1,
+            "priority": 100
+        },
+        {
+            "id": 104,
+            "label": "Estatus Epil\u00e9ptico",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 1 \u2014 22/02 | Prioridad 100",
+            "sprint_day": 1,
+            "priority": 100
+        },
+        {
+            "id": 105,
+            "label": "LES (Lupus)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 1 \u2014 22/02 | Prioridad 100",
+            "sprint_day": 1,
+            "priority": 100
+        },
+        {
+            "id": 106,
+            "label": "Preeclampsia (Zuspan)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 100",
+            "sprint_day": 2,
+            "priority": 100
+        },
+        {
+            "id": 107,
+            "label": "iSGLT2 en Falla Card.",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 98",
+            "sprint_day": 2,
+            "priority": 98
+        },
+        {
+            "id": 108,
+            "label": "Dengue Grave",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 98",
+            "sprint_day": 2,
+            "priority": 98
+        },
+        {
+            "id": 109,
+            "label": "Articulo 17 (1751)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 95",
+            "sprint_day": 2,
+            "priority": 95
+        },
+        {
+            "id": 110,
+            "label": "ADA 2024 (Diabetes)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 95",
+            "sprint_day": 2,
+            "priority": 95
+        },
+        {
+            "id": 111,
+            "label": "Asma (SABA Warning)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 95",
+            "sprint_day": 2,
+            "priority": 95
+        },
+        {
+            "id": 112,
+            "label": "VIH (PrEP)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
+            "sprint_day": 3,
+            "priority": 95
+        },
+        {
+            "id": 113,
+            "label": "Estado Hiperosmolar",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
+            "sprint_day": 3,
+            "priority": 95
+        },
+        {
+            "id": 114,
+            "label": "Guillain-Barr\u00e9",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
+            "sprint_day": 3,
+            "priority": 95
+        },
+        {
+            "id": 115,
+            "label": "Artritis Reumatoide",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
+            "sprint_day": 3,
+            "priority": 95
+        },
+        {
+            "id": 116,
+            "label": "Colecistitis (Murphy)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
+            "sprint_day": 3,
+            "priority": 95
+        },
+        {
+            "id": 117,
+            "label": "C\u00f3digo Rojo (4T)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
+            "sprint_day": 3,
+            "priority": 95
+        },
+        {
+            "id": 118,
+            "label": "EDA (Plan B)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 4 \u2014 25/02 | Prioridad 95",
+            "sprint_day": 4,
+            "priority": 95
+        },
+        {
+            "id": 119,
+            "label": "PAI 2025 (Protocolos Colombia)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 4 \u2014 25/02 | Prioridad 95",
+            "sprint_day": 4,
+            "priority": 95
+        },
+        {
+            "id": 120,
+            "label": "Feminicidio (Ley 2356)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 4 \u2014 25/02 | Prioridad 90",
+            "sprint_day": 4,
+            "priority": 90
+        },
+        {
+            "id": 121,
+            "label": "GLP-1 en ERC",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 4 \u2014 25/02 | Prioridad 90",
+            "sprint_day": 4,
+            "priority": 90
+        },
+        {
+            "id": 122,
+            "label": "EPOC (Grupo E)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 4 \u2014 25/02 | Prioridad 90",
+            "sprint_day": 4,
+            "priority": 90
+        },
+        {
+            "id": 123,
+            "label": "VIH (Gestacional)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 4 \u2014 25/02 | Prioridad 90",
+            "sprint_day": 4,
+            "priority": 90
+        },
+        {
+            "id": 124,
+            "label": "Hipotiroidismo",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 5 \u2014 26/02 | Prioridad 90",
+            "sprint_day": 5,
+            "priority": 90
+        },
+        {
+            "id": 125,
+            "label": "Miastenia Gravis",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 5 \u2014 26/02 | Prioridad 90",
+            "sprint_day": 5,
+            "priority": 90
+        },
+        {
+            "id": 126,
+            "label": "Gota (Sinovial)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 5 \u2014 26/02 | Prioridad 90",
+            "sprint_day": 5,
+            "priority": 90
+        },
+        {
+            "id": 127,
+            "label": "Cirug\u00eda Hernia",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 5 \u2014 26/02 | Prioridad 90",
+            "sprint_day": 5,
+            "priority": 90
+        },
+        {
+            "id": 128,
+            "label": "Maduraci\u00f3n Pulm.",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 5 \u2014 26/02 | Prioridad 90",
+            "sprint_day": 5,
+            "priority": 90
+        },
+        {
+            "id": 129,
+            "label": "Bronquiolitis (Wood)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 5 \u2014 26/02 | Prioridad 90",
+            "sprint_day": 5,
+            "priority": 90
+        },
+        {
+            "id": 130,
+            "label": "Vacuna Dengue (Qdenga)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 6 \u2014 27/02 | Prioridad 90",
+            "sprint_day": 6,
+            "priority": 90
+        },
+        {
+            "id": 131,
+            "label": "Protocolo SIVIGE",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 6 \u2014 27/02 | Prioridad 85",
+            "sprint_day": 6,
+            "priority": 85
+        },
+        {
+            "id": 132,
+            "label": "SCA (IAMCEST)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 6 \u2014 27/02 | Prioridad 85",
+            "sprint_day": 6,
+            "priority": 85
+        },
+        {
+            "id": 133,
+            "label": "TEP (Diagn\u00f3stico)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 6 \u2014 27/02 | Prioridad 85",
+            "sprint_day": 6,
+            "priority": 85
+        },
+        {
+            "id": 134,
+            "label": "TB (Renal)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 6 \u2014 27/02 | Prioridad 85",
+            "sprint_day": 6,
+            "priority": 85
+        },
+        {
+            "id": 135,
+            "label": "TI-RADS",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 6 \u2014 27/02 | Prioridad 85",
+            "sprint_day": 6,
+            "priority": 85
+        },
+        {
+            "id": 136,
+            "label": "Migra\u00f1a",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 7 \u2014 28/02 | Prioridad 85",
+            "sprint_day": 7,
+            "priority": 85
+        },
+        {
+            "id": 137,
+            "label": "Vasculitis (Kawasaki)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 7 \u2014 28/02 | Prioridad 85",
+            "sprint_day": 7,
+            "priority": 85
+        },
+        {
+            "id": 138,
+            "label": "Trauma Abdominal",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 7 \u2014 28/02 | Prioridad 85",
+            "sprint_day": 7,
+            "priority": 85
+        },
+        {
+            "id": 139,
+            "label": "Sangrado 1ra Mitad",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 7 \u2014 28/02 | Prioridad 85",
+            "sprint_day": 7,
+            "priority": 85
+        },
+        {
+            "id": 140,
+            "label": "Crup (Westley)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 7 \u2014 28/02 | Prioridad 85",
+            "sprint_day": 7,
+            "priority": 85
+        },
+        {
+            "id": 141,
+            "label": "Cadena de Custodia",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 7 \u2014 28/02 | Prioridad 80",
+            "sprint_day": 7,
+            "priority": 80
+        },
+        {
+            "id": 142,
+            "label": "HTA (Urgencia)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 8 \u2014 01/03 | Prioridad 80",
+            "sprint_day": 8,
+            "priority": 80
+        },
+        {
+            "id": 143,
+            "label": "Neumon\u00eda (CURB-65)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 8 \u2014 01/03 | Prioridad 80",
+            "sprint_day": 8,
+            "priority": 80
+        },
+        {
+            "id": 144,
+            "label": "Hepatitis B (Sero)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 8 \u2014 01/03 | Prioridad 80",
+            "sprint_day": 8,
+            "priority": 80
+        },
+        {
+            "id": 145,
+            "label": "Crisis Addisoniana",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 8 \u2014 01/03 | Prioridad 80",
+            "sprint_day": 8,
+            "priority": 80
+        },
+        {
+            "id": 146,
+            "label": "TCE (Glasgow)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 8 \u2014 01/03 | Prioridad 80",
+            "sprint_day": 8,
+            "priority": 80
+        },
+        {
+            "id": 147,
+            "label": "AKI (KDIGO)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 8 \u2014 01/03 | Prioridad 80",
+            "sprint_day": 8,
+            "priority": 80
+        },
+        {
+            "id": 148,
+            "label": "Obstrucci\u00f3n Intest.",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 9 \u2014 02/03 | Prioridad 80",
+            "sprint_day": 9,
+            "priority": 80
+        },
+        {
+            "id": 149,
+            "label": "Placenta Previa",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 9 \u2014 02/03 | Prioridad 80",
+            "sprint_day": 9,
+            "priority": 80
+        },
+        {
+            "id": 150,
+            "label": "Sensibilidad vs Esp.",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 9 \u2014 02/03 | Prioridad 80",
+            "sprint_day": 9,
+            "priority": 80
+        },
+        {
+            "id": 151,
+            "label": "Ley 1616 (S. Mental)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 9 \u2014 02/03 | Prioridad 75",
+            "sprint_day": 9,
+            "priority": 75
+        },
+        {
+            "id": 152,
+            "label": "Fibrilaci\u00f3n Auricular",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 9 \u2014 02/03 | Prioridad 75",
+            "sprint_day": 9,
+            "priority": 75
+        },
+        {
+            "id": 153,
+            "label": "Derrame Pleural",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 9 \u2014 02/03 | Prioridad 75",
+            "sprint_day": 9,
+            "priority": 75
+        },
+        {
+            "id": 154,
+            "label": "Sepsis 3 (qSOFA)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 10 \u2014 03/03 | Prioridad 75",
+            "sprint_day": 10,
+            "priority": 75
+        },
+        {
+            "id": 155,
+            "label": "Hipercalcemia",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 10 \u2014 03/03 | Prioridad 75",
+            "sprint_day": 10,
+            "priority": 75
+        },
+        {
+            "id": 156,
+            "label": "Alzheimer",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 10 \u2014 03/03 | Prioridad 75",
+            "sprint_day": 10,
+            "priority": 75
+        },
+        {
+            "id": 157,
+            "label": "ERC (Nefro-prot)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 10 \u2014 03/03 | Prioridad 75",
+            "sprint_day": 10,
+            "priority": 75
+        },
+        {
+            "id": 158,
+            "label": "Fisura Anal",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 10 \u2014 03/03 | Prioridad 75",
+            "sprint_day": 10,
+            "priority": 75
+        },
+        {
+            "id": 159,
+            "label": "DPPNI",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 10 \u2014 03/03 | Prioridad 75",
+            "sprint_day": 10,
+            "priority": 75
+        },
+        {
+            "id": 160,
+            "label": "Riesgo Relativo (RR)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 11 \u2014 04/03 | Prioridad 75",
+            "sprint_day": 11,
+            "priority": 75
+        },
+        {
+            "id": 161,
+            "label": "Protocolo Suicidio",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 11 \u2014 04/03 | Prioridad 70",
+            "sprint_day": 11,
+            "priority": 70
+        },
+        {
+            "id": 162,
+            "label": "Endocarditis (Duke)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 11 \u2014 04/03 | Prioridad 70",
+            "sprint_day": 11,
+            "priority": 70
+        },
+        {
+            "id": 163,
+            "label": "SRI (Intubaci\u00f3n)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 11 \u2014 04/03 | Prioridad 70",
+            "sprint_day": 11,
+            "priority": 70
+        },
+        {
+            "id": 164,
+            "label": "Meningitis Bacteriana",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 11 \u2014 04/03 | Prioridad 70",
+            "sprint_day": 11,
+            "priority": 70
+        },
+        {
+            "id": 165,
+            "label": "Metformina",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 11 \u2014 04/03 | Prioridad 70",
+            "sprint_day": 11,
+            "priority": 70
+        },
+        {
+            "id": 166,
+            "label": "Parkinson",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 12 \u2014 05/03 | Prioridad 70",
+            "sprint_day": 12,
+            "priority": 70
+        },
+        {
+            "id": 167,
+            "label": "Hiponatremia",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 12 \u2014 05/03 | Prioridad 70",
+            "sprint_day": 12,
+            "priority": 70
+        },
+        {
+            "id": 168,
+            "label": "C\u00e1ncer de Colon",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 12 \u2014 05/03 | Prioridad 70",
+            "sprint_day": 12,
+            "priority": 70
+        },
+        {
+            "id": 169,
+            "label": "Anticoncipi\u00f3n (CMS)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 12 \u2014 05/03 | Prioridad 70",
+            "sprint_day": 12,
+            "priority": 70
+        },
+        {
+            "id": 170,
+            "label": "Valor P",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 12 \u2014 05/03 | Prioridad 70",
+            "sprint_day": 12,
+            "priority": 70
+        },
+        {
+            "id": 171,
+            "label": "Consentimiento Informado",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 12 \u2014 05/03 | Prioridad 65",
+            "sprint_day": 12,
+            "priority": 65
+        },
+        {
+            "id": 172,
+            "label": "Bloqueo AV (Mobitz I)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 13 \u2014 06/03 | Prioridad 65",
+            "sprint_day": 13,
+            "priority": 65
+        },
+        {
+            "id": 173,
+            "label": "IVU (Pielonefritis)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 13 \u2014 06/03 | Prioridad 65",
+            "sprint_day": 13,
+            "priority": 65
+        },
+        {
+            "id": 174,
+            "label": "Depresi\u00f3n (ISRS)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 13 \u2014 06/03 | Prioridad 65",
+            "sprint_day": 13,
+            "priority": 65
+        },
+        {
+            "id": 175,
+            "label": "Hiperkalemia",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 13 \u2014 06/03 | Prioridad 65",
+            "sprint_day": 13,
+            "priority": 65
+        },
+        {
+            "id": 176,
+            "label": "Pancreatitis (Atlanta)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 13 \u2014 06/03 | Prioridad 65",
+            "sprint_day": 13,
+            "priority": 65
+        },
+        {
+            "id": 177,
+            "label": "C\u00e1ncer de C\u00e9rvix",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 13 \u2014 06/03 | Prioridad 65",
+            "sprint_day": 13,
+            "priority": 65
+        },
+        {
+            "id": 178,
+            "label": "Resoluci\u00f3n 0-3960",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 14 \u2014 07/03 | Prioridad 60",
+            "sprint_day": 14,
+            "priority": 60
+        },
+        {
+            "id": 179,
+            "label": "Bloqueo AV (Mobitz II)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 14 \u2014 07/03 | Prioridad 60",
+            "sprint_day": 14,
+            "priority": 60
+        },
+        {
+            "id": 180,
+            "label": "S\u00edfilis Cong\u00e9nita",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 14 \u2014 07/03 | Prioridad 60",
+            "sprint_day": 14,
+            "priority": 60
+        },
+        {
+            "id": 181,
+            "label": "Psicosis Aguda",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 14 \u2014 07/03 | Prioridad 60",
+            "sprint_day": 14,
+            "priority": 60
+        },
+        {
+            "id": 182,
+            "label": "Anion Gap",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 14 \u2014 07/03 | Prioridad 60",
+            "sprint_day": 14,
+            "priority": 60
+        },
+        {
+            "id": 183,
+            "label": "Fractura Colles",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 14 \u2014 07/03 | Prioridad 60",
+            "sprint_day": 14,
+            "priority": 60
+        },
+        {
+            "id": 184,
+            "label": "Bio\u00e9tica (Principialismo)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 15 \u2014 08/03 | Prioridad 55",
+            "sprint_day": 15,
+            "priority": 55
+        },
+        {
+            "id": 185,
+            "label": "Estenosis A\u00f3rtica",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 15 \u2014 08/03 | Prioridad 55",
+            "sprint_day": 15,
+            "priority": 55
+        },
+        {
+            "id": 186,
+            "label": "Malaria (Gota Gruesa)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 15 \u2014 08/03 | Prioridad 55",
+            "sprint_day": 15,
+            "priority": 55
+        },
+        {
+            "id": 187,
+            "label": "Trastorno Bipolar",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 15 \u2014 08/03 | Prioridad 55",
+            "sprint_day": 15,
+            "priority": 55
+        },
+        {
+            "id": 188,
+            "label": "Anemia Ferrop\u00e9nica",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 15 \u2014 08/03 | Prioridad 55",
+            "sprint_day": 15,
+            "priority": 55
+        },
+        {
+            "id": 189,
+            "label": "Luxaci\u00f3n Hombro",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 15 \u2014 08/03 | Prioridad 55",
+            "sprint_day": 15,
+            "priority": 55
+        },
+        {
+            "id": 190,
+            "label": "Pericarditis Aguda",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 16 \u2014 09/03 | Prioridad 50",
+            "sprint_day": 16,
+            "priority": 50
+        },
+        {
+            "id": 191,
+            "label": "Celulitis vs Erisipela",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 16 \u2014 09/03 | Prioridad 50",
+            "sprint_day": 16,
+            "priority": 50
+        },
+        {
+            "id": 192,
+            "label": "Anemia Megalobl\u00e1s.",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 16 \u2014 09/03 | Prioridad 50",
+            "sprint_day": 16,
+            "priority": 50
+        },
+        {
+            "id": 193,
+            "label": "Miocarditis",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 16 \u2014 09/03 | Prioridad 45",
+            "sprint_day": 16,
+            "priority": 45
+        },
+        {
+            "id": 194,
+            "label": "Parasitismo (EDA)",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 16 \u2014 09/03 | Prioridad 45",
+            "sprint_day": 16,
+            "priority": 45
+        },
+        {
+            "id": 195,
+            "label": "Leucemia Aguda",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 16 \u2014 09/03 | Prioridad 45",
+            "sprint_day": 16,
+            "priority": 45
+        },
+        {
+            "id": 196,
+            "label": "Shock Cardiog\u00e9nico",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 17 \u2014 10/03 | Prioridad 40",
+            "sprint_day": 17,
+            "priority": 40
+        },
+        {
+            "id": 197,
+            "label": "Mieloma M\u00faltiple",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 17 \u2014 10/03 | Prioridad 40",
+            "sprint_day": 17,
+            "priority": 40
+        },
+        {
+            "id": 198,
+            "label": "Disecci\u00f3n A\u00f3rtica",
+            "group": "locked",
+            "title": "\ud83d\udcc5 D\u00eda 17 \u2014 10/03 | Prioridad 35",
+            "sprint_day": 17,
+            "priority": 35
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2
+        },
+        {
+            "from": 2,
+            "to": 3
+        },
+        {
+            "from": 3,
+            "to": 4
+        },
+        {
+            "from": 4,
+            "to": 5
+        },
+        {
+            "from": 6,
+            "to": 7
+        },
+        {
+            "from": 8,
+            "to": 9
+        },
+        {
+            "from": 9,
+            "to": 10
+        },
+        {
+            "from": 10,
+            "to": 99,
+            "dashes": true,
+            "label": "SRS"
+        },
+        {
+            "from": 10,
+            "to": 11
+        },
+        {
+            "from": 11,
+            "to": 12
+        },
+        {
+            "from": 12,
+            "to": 13
+        },
+        {
+            "from": 13,
+            "to": 14
+        },
+        {
+            "from": 14,
+            "to": 98,
+            "dashes": true,
+            "label": "SRS"
+        },
+        {
+            "from": 14,
+            "to": 15
+        },
+        {
+            "from": 15,
+            "to": 16
+        },
+        {
+            "from": 16,
+            "to": 17
+        },
+        {
+            "from": 17,
+            "to": 18
+        },
+        {
+            "from": 18,
+            "to": 19
+        },
+        {
+            "from": 19,
+            "to": 20
+        },
+        {
+            "from": 20,
+            "to": 21
+        },
+        {
+            "from": 21,
+            "to": 22
+        },
+        {
+            "from": 22,
+            "to": 23
+        },
+        {
+            "from": 23,
+            "to": 24
+        },
+        {
+            "from": 24,
+            "to": 25
+        },
+        {
+            "from": 1,
+            "to": 15,
+            "dashes": true,
+            "label": "Ley Estatutaria"
+        },
+        {
+            "from": 25,
+            "to": 100
+        },
+        {
+            "from": 100,
+            "to": 101
+        },
+        {
+            "from": 101,
+            "to": 102
+        },
+        {
+            "from": 102,
+            "to": 103
+        },
+        {
+            "from": 103,
+            "to": 104
+        },
+        {
+            "from": 104,
+            "to": 105
+        },
+        {
+            "from": 105,
+            "to": 106
+        },
+        {
+            "from": 106,
+            "to": 107
+        },
+        {
+            "from": 107,
+            "to": 108
+        },
+        {
+            "from": 108,
+            "to": 109
+        },
+        {
+            "from": 109,
+            "to": 110
+        },
+        {
+            "from": 110,
+            "to": 111
+        },
+        {
+            "from": 111,
+            "to": 112
+        },
+        {
+            "from": 112,
+            "to": 113
+        },
+        {
+            "from": 113,
+            "to": 114
+        },
+        {
+            "from": 114,
+            "to": 115
+        },
+        {
+            "from": 115,
+            "to": 116
+        },
+        {
+            "from": 116,
+            "to": 117
+        },
+        {
+            "from": 117,
+            "to": 118
+        },
+        {
+            "from": 118,
+            "to": 119
+        },
+        {
+            "from": 119,
+            "to": 120
+        },
+        {
+            "from": 120,
+            "to": 121
+        },
+        {
+            "from": 121,
+            "to": 122
+        },
+        {
+            "from": 122,
+            "to": 123
+        },
+        {
+            "from": 123,
+            "to": 124
+        },
+        {
+            "from": 124,
+            "to": 125
+        },
+        {
+            "from": 125,
+            "to": 126
+        },
+        {
+            "from": 126,
+            "to": 127
+        },
+        {
+            "from": 127,
+            "to": 128
+        },
+        {
+            "from": 128,
+            "to": 129
+        },
+        {
+            "from": 129,
+            "to": 130
+        },
+        {
+            "from": 130,
+            "to": 131
+        },
+        {
+            "from": 131,
+            "to": 132
+        },
+        {
+            "from": 132,
+            "to": 133
+        },
+        {
+            "from": 133,
+            "to": 134
+        },
+        {
+            "from": 134,
+            "to": 135
+        },
+        {
+            "from": 135,
+            "to": 136
+        },
+        {
+            "from": 136,
+            "to": 137
+        },
+        {
+            "from": 137,
+            "to": 138
+        },
+        {
+            "from": 138,
+            "to": 139
+        },
+        {
+            "from": 139,
+            "to": 140
+        },
+        {
+            "from": 140,
+            "to": 141
+        },
+        {
+            "from": 141,
+            "to": 142
+        },
+        {
+            "from": 142,
+            "to": 143
+        },
+        {
+            "from": 143,
+            "to": 144
+        },
+        {
+            "from": 144,
+            "to": 145
+        },
+        {
+            "from": 145,
+            "to": 146
+        },
+        {
+            "from": 146,
+            "to": 147
+        },
+        {
+            "from": 147,
+            "to": 148
+        },
+        {
+            "from": 148,
+            "to": 149
+        },
+        {
+            "from": 149,
+            "to": 150
+        },
+        {
+            "from": 150,
+            "to": 151
+        },
+        {
+            "from": 151,
+            "to": 152
+        },
+        {
+            "from": 152,
+            "to": 153
+        },
+        {
+            "from": 153,
+            "to": 154
+        },
+        {
+            "from": 154,
+            "to": 155
+        },
+        {
+            "from": 155,
+            "to": 156
+        },
+        {
+            "from": 156,
+            "to": 157
+        },
+        {
+            "from": 157,
+            "to": 158
+        },
+        {
+            "from": 158,
+            "to": 159
+        },
+        {
+            "from": 159,
+            "to": 160
+        },
+        {
+            "from": 160,
+            "to": 161
+        },
+        {
+            "from": 161,
+            "to": 162
+        },
+        {
+            "from": 162,
+            "to": 163
+        },
+        {
+            "from": 163,
+            "to": 164
+        },
+        {
+            "from": 164,
+            "to": 165
+        },
+        {
+            "from": 165,
+            "to": 166
+        },
+        {
+            "from": 166,
+            "to": 167
+        },
+        {
+            "from": 167,
+            "to": 168
+        },
+        {
+            "from": 168,
+            "to": 169
+        },
+        {
+            "from": 169,
+            "to": 170
+        },
+        {
+            "from": 170,
+            "to": 171
+        },
+        {
+            "from": 171,
+            "to": 172
+        },
+        {
+            "from": 172,
+            "to": 173
+        },
+        {
+            "from": 173,
+            "to": 174
+        },
+        {
+            "from": 174,
+            "to": 175
+        },
+        {
+            "from": 175,
+            "to": 176
+        },
+        {
+            "from": 176,
+            "to": 177
+        },
+        {
+            "from": 177,
+            "to": 178
+        },
+        {
+            "from": 178,
+            "to": 179
+        },
+        {
+            "from": 179,
+            "to": 180
+        },
+        {
+            "from": 180,
+            "to": 181
+        },
+        {
+            "from": 181,
+            "to": 182
+        },
+        {
+            "from": 182,
+            "to": 183
+        },
+        {
+            "from": 183,
+            "to": 184
+        },
+        {
+            "from": 184,
+            "to": 185
+        },
+        {
+            "from": 185,
+            "to": 186
+        },
+        {
+            "from": 186,
+            "to": 187
+        },
+        {
+            "from": 187,
+            "to": 188
+        },
+        {
+            "from": 188,
+            "to": 189
+        },
+        {
+            "from": 189,
+            "to": 190
+        },
+        {
+            "from": 190,
+            "to": 191
+        },
+        {
+            "from": 191,
+            "to": 192
+        },
+        {
+            "from": 192,
+            "to": 193
+        },
+        {
+            "from": 193,
+            "to": 194
+        },
+        {
+            "from": 194,
+            "to": 195
+        },
+        {
+            "from": 195,
+            "to": 196
+        },
+        {
+            "from": 196,
+            "to": 197
+        },
+        {
+            "from": 197,
+            "to": 198
+        }
+    ]
+}
