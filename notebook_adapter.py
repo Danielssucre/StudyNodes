@@ -99,10 +99,9 @@ class NotebookAdapter:
 
     def list_notebooks(self):
         """Returns a list of notebooks."""
-        res = self._call_tool("notebook_list", {"max_results": 10})
+        res = self._call_tool("notebook_list", {"max_results": 20})
         if not res: return []
         
-        # res could be the unpacked JSON or the MCP result dict
         if isinstance(res, dict) and "notebooks" in res:
              return res["notebooks"]
         
@@ -119,7 +118,6 @@ class NotebookAdapter:
         res = self._call_tool("notebook_create", {"title": title})
         if not res: return None
         
-        # Check unpacked status
         if "notebook" in res and isinstance(res["notebook"], dict):
             return res["notebook"].get("id")
         if "id" in res: return res.get("id")
@@ -133,6 +131,66 @@ class NotebookAdapter:
             except: pass
         return None
 
+    def ensure_notebook(self, topic):
+        """Routes the topic to its corresponding Super-Notebook with overflow handling."""
+        SUPER_NOTEBOOKS = {
+            "MI_I": {"id": "d4737997-77d9-4f4f-9fe5-fc879d1d33c4", "name": "CORTEX: MEDICINA INTERNA (Super-Notebook)"},
+            "MI_II": {"id": "a295fb79-0d00-48be-bf9c-b97e01a82750", "name": "CORTEX: MEDICINA INTERNA II (Super-Notebook)"},
+            "PEDIATRIA": {"id": "0301217b-b6a3-41c1-8f74-c6bc24c41ca8", "name": "CORTEX: PEDIATRÍA (Super-Notebook)"},
+            "GINECO": {"id": "3dcbf908-81e1-415e-9a24-3d4b518346e7", "name": "CORTEX: GINECOBSTETRICIA (Super-Notebook)"},
+            "CIRUGIA": {"id": "014d7abd-6aa6-4200-a0e2-fc4d81053bb4", "name": "CORTEX: CIRUGÍA Y URGENCIAS (Super-Notebook)"},
+            "SALUD_PUBLICA": {"id": "37cac7fe-3458-405d-b352-4f27641ed555", "name": "CORTEX: SALUD PÚBLICA, ÉTICA Y LEGAL (Super-Notebook)"}
+        }
+
+        # Mapping of common keywords to specialties
+        SPECIALTY_MAP = {
+            "card": "MI_I", "insuficiencia cardíaca": "MI_I", "hfrer": "MI_I", "hfpef": "MI_I", 
+            "neumo": "MI_I", "epoc": "MI_I", "asma": "MI_I", "tep": "MI_I",
+            "nefro": "MI_I", "aki": "MI_I", "erc": "MI_I",
+            "infec": "MI_II", "vih": "MI_II", "dengue": "MI_II", "malaria": "MI_II", "tuberculosis": "MI_II", "tb": "MI_II",
+            "neuro": "MI_II", "epileps": "MI_II", "guillain": "MI_II", "parkinson": "MI_II",
+            "endo": "MI_II", "diabetes": "MI_II", "ada": "MI_II", "tiroides": "MI_II", "addison": "MI_II",
+            "reuma": "MI_II", "lupus": "MI_II", "artritis": "MI_II", "hemat": "MI_II",
+            "pediat": "PEDIATRIA", "lactante": "PEDIATRIA", "neonat": "PEDIATRIA", "eda": "PEDIATRIA",
+            "gineco": "GINECO", "obstet": "GINECO", "preeclampsia": "GINECO", "parto": "GINECO",
+            "cirug": "CIRUGIA", "apendicitis": "CIRUGIA", "colecistitis": "CIRUGIA", "trauma": "CIRUGIA",
+            "ley": "SALUD_PUBLICA", "norma": "SALUD_PUBLICA", "bioétic": "SALUD_PUBLICA", "bioestad": "SALUD_PUBLICA"
+        }
+
+        topic_lower = topic.lower()
+        spec_key = "MI_II" # Fallback
+        for key, spec in SPECIALTY_MAP.items():
+            if key in topic_lower:
+                spec_key = spec
+                break
+        
+        target = SUPER_NOTEBOOKS[spec_key]
+        primary_id = target["id"]
+        primary_name = target["name"]
+
+        # Check source count to handle overflow
+        all_nbs = self.list_notebooks()
+        primary_nb = next((nb for nb in all_nbs if nb.get("id") == primary_id), None)
+        
+        source_count = primary_nb.get("source_count", 0) if primary_nb else 0
+        
+        if source_count < 50:
+            print(f"🎯 Ruteo Primario: '{topic}' -> {spec_key} ({source_count}/50 fuentes)")
+            return primary_id
+        
+        # Overflow! Check for V2
+        v2_name = f"{primary_name} (V2)"
+        v2_nb = next((nb for nb in all_nbs if v2_name in nb.get("title", "")), None)
+        
+        if v2_nb:
+            print(f"🚀 Ruteo OVERFLOW (V2): '{topic}' -> {spec_key} V2 ({v2_nb.get('source_count', 0)}/50 fuentes)")
+            return v2_nb.get("id")
+        
+        # Create V2
+        print(f"⚠️ {primary_name} está LLENO (50/50). Creando Volumen 2...")
+        new_id = self.create_notebook(v2_name)
+        return new_id
+    
     def add_url_source(self, notebook_id, url):
         """Adds a URL source to the notebook."""
         return self._call_tool("notebook_add_url", {"notebook_id": notebook_id, "url": url})
@@ -140,102 +198,6 @@ class NotebookAdapter:
     def query_notebook(self, notebook_id, query):
         """Queries the notebook."""
         return self._call_tool("notebook_query", {"notebook_id": notebook_id, "query": query})
-
-    def ensure_notebook(self, topic):
-        """Finds or creates a notebook for the topic."""
-        data = self.list_notebooks()
-        
-        # list_notebooks returns a list or dict
-        notebooks = []
-        if isinstance(data, dict):
-            notebooks = data.get("notebooks", [])
-        elif isinstance(data, list):
-            notebooks = data
-        
-        # Simple fuzzy search
-        target_nb = None
-        for nb in notebooks:
-            if isinstance(nb, dict) and topic.lower() in nb.get("title", "").lower():
-                target_nb = nb
-                break
-        
-        if target_nb:
-            nb_id = target_nb.get("id")
-            source_count = target_nb.get("source_count", 0)
-            if source_count == 0:
-                print(f"⚠️ Notebook '{topic}' existe pero está vacío (0 fuentes). Forzando investigación...")
-                try:
-                    success = self.research_latest_guidelines(nb_id, topic)
-                    if not success:
-                        print(f"❌ Auto-research failed for '{topic}'. Manual intervention might be needed.")
-                except Exception as e:
-                    print(f"⚠️ Auto-research failed: {e}")
-            return nb_id
-        
-        # Not found, create
-        print(f"Creating new notebook for topic: {topic}")
-        try:
-            nb_id = self.create_notebook(topic)
-        except:
-            nb_id = None
-        
-        if not nb_id:
-            print(f"⚠️ Failed to create specific notebook for '{topic}'. Searching for a General/Master fallback...")
-            # Fallback: Search for any notebook with 'master' or 'general' or 'uninorte' in title
-            for nb in notebooks:
-                title = nb.get("title", "").lower()
-                if "master" in title or "general" in title or "uninorte" in title or "estudio" in title:
-                    print(f"✅ Using fallback notebook: {nb['title']} ({nb['id']})")
-                    return nb.get("id")
-            
-            # If still nothing, use the first available notebook as a last resort to keep the pipeline alive
-            if notebooks:
-                fallback = notebooks[0]
-                print(f"⚠️ No master/general found. Using last resort: {fallback['title']} ({fallback['id']})")
-                return fallback.get("id")
-            
-            raise Exception(f"Failed to create or find ANY notebook for '{topic}'. Check NotebookLM limits.")
-    
-    def query_quick_fact(self, topic, question):
-        """Retrieves a concise fact from the notebook to support chat."""
-        nb_id = self.ensure_notebook(topic)
-        prompt = f"Responde brevemente (máx 50 palabras) a esta duda sobre '{topic}': '{question}'. Basa tu respuesta SOLO en las fuentes."
-        
-        try:
-            res = self.query_notebook(nb_id, prompt)
-            if res and "content" in res:
-                return res["content"][0]["text"]
-        except Exception as e:
-            print(f"⚠️ RAG Retrieval Failed: {e}")
-            
-        return "No hay datos específicos en tus notas."
-        """Queries the notebook to generate a clinical case in MCQ or Open format."""
-        angle_prompt = f"enfocándote específicamente en el ángulo: {angle_name}" if angle_name else ""
-        
-        if q_format == "open":
-            format_instruction = (
-                "Formato: Enunciado detallado, Respuesta Corta (el diagnóstico o tratamiento exacto), "
-                "y Explicación detallada. NO incluyas opciones A,B,C,D. "
-                "Ejemplo: {\"enunciado\": \"...\", \"respuesta_corta\": \"Amiodarona\", \"retroalimentacion\": \"...\"}"
-            )
-        else:
-            format_instruction = (
-                "Formato: Enunciado detallado, 4 opciones (A,B,C,D), Respuesta Correcta y Explicación detallada. "
-                "Ejemplo: {\"enunciado\": \"...\", \"opciones\": [\"A)...\"], \"correcta\": \"...\", \"retroalimentacion\": \"...\"}"
-            )
-
-        prompt = (
-            f"Actúa como el Mentor de Élite Axioma. Basado en tus fuentes sobre '{topic}', genera un CASO CLÍNICO difícil {angle_prompt} "
-            "priorizando estrictamente los patrones que más se repiten en el examen de la Uninorte. "
-            "REGLA DE LOS PORQUÉS (Eje Central):\n"
-            "1. En el enunciado, justifica fisiopatológicamente por qué aparecen los síntomas.\n"
-            "2. En la retroalimentación, explica POR QUÉ el diagnóstico/tratamiento es el correcto basándote en las GUÍAS DEL MINISTERIO DE SALUD COLOMBIANO (última actualización), "
-            "y por qué otros diagnósticos diferenciales (los 'distractores') serían incorrectos en este contexto clínico.\n\n"
-            f"{format_instruction}\n"
-            "IMPORTANTE: Devuelve SOLAMENTE el objeto JSON válido. NO uses bloques de código markdown."
-        )
-        res = self.query_notebook(notebook_id, prompt)
-        return res
 
     def research_latest_guidelines(self, notebook_id, topic, current_date=None):
         """Triggers a deep research for recent guidelines and imports them."""
@@ -470,6 +432,8 @@ class NotebookAdapter:
             "ARTRITIS REUMATOIDE": "Artritis Reumatoide: Anti-CCP (más específico), FR, metotrexato primera línea",
             "COLECISTITIS (MURPHY)": "Colecistitis Aguda - Criterios Tokyo 2018: Signo de Murphy, fiebre, eco abdominal",
             "CÓDIGO ROJO (4T)": "Hemorragia Obstétrica - Código Rojo: 4T (Tono, Trauma, Tejido, Trombina)",
+            "EDA": "Enfermedad Diarreica Aguda (Protocolo AIEPI / OMS)",
+            "EDA (ENFERMEDAD DIARREICA AGUDA)": "Enfermedad Diarreica Aguda - Manejo Integral (Planes A, B, C) y prevención de deshidratación",
             "EDA (PLAN B)": "Enfermedad Diarreica Aguda - Plan B de Hidratación OMS: Sales orales 75cc/kg en 4h",
             "PAI 2025 (PROTOCOLOS COLOMBIA)": "PAI Colombia 2025 - Esquema de vacunación actualizado: VPH niños, Dengue (Qdenga), Rotavirus",
             "FEMINICIDIO (LEY 2356)": "Ley 2356/2024 - Protocolo de atención a víctimas de violencia de género: SIVIGILA 400, ruta intersectorial",
@@ -553,12 +517,21 @@ class NotebookAdapter:
 
         
         # Clean topic for lookup
-        clean_topic = topic.split('(')[0].strip().upper()
+        topic_upper = topic.strip().upper()
+        clean_acronym = topic.split('(')[0].strip().upper()
         
-        if clean_topic in MEDICAL_GLOSSARY:
+        # Exact match (for full labels)
+        if topic_upper in MEDICAL_GLOSSARY:
             return {
-                "full_title": MEDICAL_GLOSSARY[clean_topic],
-                "context": f"Concepto clave de {MEDICAL_GLOSSARY[clean_topic]}. Seguir protocolos de medicina basada en evidencia."
+                "full_title": MEDICAL_GLOSSARY[topic_upper],
+                "context": f"Concepto clave de {MEDICAL_GLOSSARY[topic_upper]}. Seguir protocolos de medicina basada en evidencia."
+            }
+            
+        # Acronym match
+        if clean_acronym in MEDICAL_GLOSSARY:
+            return {
+                "full_title": MEDICAL_GLOSSARY[clean_acronym],
+                "context": f"Concepto clave de {MEDICAL_GLOSSARY[clean_acronym]}. Seguir protocolos de medicina basada en evidencia."
             }
 
         # 2. NotebookLM Fallback

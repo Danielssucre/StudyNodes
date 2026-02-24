@@ -175,35 +175,38 @@
         {
             "id": 101,
             "label": "Falla Card\u00edaca (HFrEF)",
-            "group": "active",
-            "title": "\u26a0\ufe0f OBJETIVO ACTUAL",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 1,
             "priority": 100,
-            "mastery_level": 2
+            "mastery_level": 3
         },
         {
             "id": 102,
             "label": "Dengue (INS 2024)",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 1 \u2014 22/02 | Prioridad 100",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 1,
-            "priority": 100
+            "priority": 100,
+            "mastery_level": 3
         },
         {
             "id": 103,
             "label": "CAD (Cetoacidosis)",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 1 \u2014 22/02 | Prioridad 100",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 1,
-            "priority": 100
+            "priority": 100,
+            "mastery_level": 3
         },
         {
             "id": 104,
             "label": "Estatus Epil\u00e9ptico",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 1 \u2014 22/02 | Prioridad 100",
+            "group": "active",
+            "title": "\u26a0\ufe0f OBJETIVO ACTUAL",
             "sprint_day": 1,
-            "priority": 100
+            "priority": 100,
+            "mastery_level": 1
         },
         {
             "id": 105,

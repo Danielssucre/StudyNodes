@@ -13,6 +13,13 @@ try:
 except ImportError:
     pass
 
+# Redirigir logs para depuración automática
+LOG_FILE = "study_dashboard/debug_exec.log"
+sys.stdout = open(LOG_FILE, "a", buffering=1)
+sys.stderr = sys.stdout
+
+print(f"\n--- REINICIO DE SERVIDOR: {os.popen('date').read().strip()} ---")
+
 # Define the port
 PORT = 8000
 
@@ -151,22 +158,6 @@ class StudyHandler(SimpleHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(json.dumps({"status": "success", "next": target_topic}).encode())
             except Exception as e:
-                print(f"❌ Error en trigger_next: {e}")
-                self.send_error(500)
-
-                
-                with open('current_session.json', 'w') as f:
-                    json.dump(session_data, f)
-
-                # Guardar cambios en el grafo
-                with open(graph_path, 'w') as f:
-                    json.dump(graph, f, indent=4)
-
-                self.send_response(200)
-                self.send_header('Content-type', 'application/json')
-                self.end_headers()
-                self.wfile.write(json.dumps({"status": "success", "next": target_topic}).encode())
-            except Exception as e:
                 import traceback
                 print(f"❌ Error en trigger_next: {e}")
                 traceback.print_exc()
@@ -200,10 +191,23 @@ class StudyHandler(SimpleHTTPRequestHandler):
             except Exception as e:
                 print(f"Error en graph_data: {e}")
                 self.send_error(500)
-        elif self.path == '/current_session':
+        elif self.path in ['/current_session', '/current_session.json']:
             try:
-                with open('current_session.json', 'r') as f:
-                    session = json.load(f)
+                session_path = 'current_session.json'
+                if os.path.exists(session_path):
+                    with open(session_path, 'r') as f:
+                        session = json.load(f)
+                else:
+                    # Fallback session object if file is missing
+                    session = {
+                        "mode": "Sincronizando...",
+                        "type": "selection",
+                        "content": "### Preparando Reto Elite\nDr. Epi está analizando las guías 2024. Por favor espera un momento...",
+                        "options": ["Cargando..."],
+                        "correct_answer": "X",
+                        "explanation": "El sistema se está inicializando."
+                    }
+                
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
                 self.send_header('Access-Control-Allow-Origin', '*')
