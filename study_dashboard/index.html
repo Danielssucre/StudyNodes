@@ -183,9 +183,18 @@
                 <span id="variant-count" class="stat-val" style="color:#C4B5FD">0</span>
                 <span class="stat-label">VARIANTES</span>
             </div>
-            <div class="stat-box" style="grid-column: span 2; margin-top:10px;">
+            <div class="stat-box" style="margin-top:5px;">
+                <span id="daily-mission" class="stat-val" style="color:#38BDF8">0/0</span>
+                <span class="stat-label">MISIÓN HOY</span>
+            </div>
+            <div class="stat-box" style="margin-top:5px;">
+                <span id="days-left" class="stat-val" style="color:#F1F5F9">0</span>
+                <span class="stat-label">DÍAS META</span>
+            </div>
+            <div class="stat-box"
+                style="grid-column: span 2; margin-top:10px; border-top:1px solid rgba(255,255,255,0.05); padding-top:10px;">
                 <span id="total-questions" class="stat-val" style="color:#FDBA74">0</span>
-                <span class="stat-label">PREGUNTAS TOTALES</span>
+                <span class="stat-label">MAESTRÍA ACUMULADA</span>
             </div>
         </div>
 
@@ -262,10 +271,27 @@
                 const mastered = graph.nodes.filter(n => n.group === 'mastered');
                 const reviews = graph.nodes.filter(n => n.id >= 90);
                 const baseTopics = mastered.length - reviews.filter(n => n.group === 'mastered').length;
+                const totalMastery = graph.nodes.reduce((acc, n) => acc + (n.mastery_level || 0), 0);
 
                 document.getElementById('topic-count').innerText = baseTopics;
                 document.getElementById('variant-count').innerText = reviews.length;
-                document.getElementById('total-questions').innerText = mastered.length;
+                document.getElementById('total-questions').innerText = totalMastery;
+
+                if (graph.metrics) {
+                    const m = graph.metrics;
+                    document.getElementById('daily-mission').innerText = `${m.done_today} / ${m.daily_goal}`;
+                    document.getElementById('days-left').innerText = m.days_left;
+
+                    // Efecto de color si se cumplió la meta
+                    const missionEl = document.getElementById('daily-mission');
+                    if (m.done_today >= m.daily_goal) {
+                        missionEl.style.color = "#4ADE80"; // Verde brillante
+                        missionEl.style.textShadow = "0 0 10px rgba(74, 222, 128, 0.5)";
+                    } else {
+                        missionEl.style.color = "#38BDF8"; // Azul original
+                        missionEl.style.textShadow = "none";
+                    }
+                }
 
                 // FIBONACCI SPIRAL LAYOUT ENGINE
                 // Golden Angle = 137.508 degrees (approx 2.4 radians)

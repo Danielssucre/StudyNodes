@@ -202,75 +202,83 @@
         {
             "id": 104,
             "label": "Estatus Epil\u00e9ptico",
-            "group": "active",
-            "title": "\u26a0\ufe0f OBJETIVO ACTUAL",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 1,
             "priority": 100,
-            "mastery_level": 1
+            "mastery_level": 3
         },
         {
             "id": 105,
             "label": "LES (Lupus)",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 1 \u2014 22/02 | Prioridad 100",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 1,
-            "priority": 100
+            "priority": 100,
+            "mastery_level": 3
         },
         {
             "id": 106,
             "label": "Preeclampsia (Zuspan)",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 100",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 2,
-            "priority": 100
+            "priority": 100,
+            "mastery_level": 3
         },
         {
             "id": 107,
             "label": "iSGLT2 en Falla Card.",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 98",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 2,
-            "priority": 98
+            "priority": 98,
+            "mastery_level": 3
         },
         {
             "id": 108,
             "label": "Dengue Grave",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 98",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 2,
-            "priority": 98
+            "priority": 98,
+            "mastery_level": 3
         },
         {
             "id": 109,
             "label": "Articulo 17 (1751)",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 95",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 2,
-            "priority": 95
+            "priority": 95,
+            "mastery_level": 3
         },
         {
             "id": 110,
             "label": "ADA 2024 (Diabetes)",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 95",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 2,
-            "priority": 95
+            "priority": 95,
+            "mastery_level": 3
         },
         {
             "id": 111,
             "label": "Asma (SABA Warning)",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 2 \u2014 23/02 | Prioridad 95",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO (3/3 \u00c1ngulos)",
             "sprint_day": 2,
-            "priority": 95
+            "priority": 95,
+            "mastery_level": 3
         },
         {
             "id": 112,
             "label": "VIH (PrEP)",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
+            "group": "active",
+            "title": "\u26a0\ufe0f OBJETIVO ACTUAL",
             "sprint_day": 3,
-            "priority": 95
+            "priority": 95,
+            "mastery_level": 0
         },
         {
             "id": 113,

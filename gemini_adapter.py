@@ -2,7 +2,7 @@ import google.generativeai as genai
 import json
 import os
 
-GEMINI_API_KEY = "AIzaSyBGaMNp3MiGXbLGWIkIK09NlH7KVfKllNM"
+GEMINI_API_KEY = "AIzaSyCFfDbzMN-0o7Q53peX77L2m1eCrfs65og"
 
 class GeminiAdapter:
     def __init__(self):
@@ -10,53 +10,74 @@ class GeminiAdapter:
         self.model = genai.GenerativeModel("gemini-2.5-flash")
 
     def _robust_json_extract(self, raw_text):
-        """Extrae y limpia JSON de forma extrema."""
+        """Extrae y limpia JSON de forma extrema con auto-recuperación de MCQs (V3.11)."""
         try:
-            # 1. Quitar bloques markdown
-            cleaned = raw_text.strip()
-            if "```json" in cleaned:
-                cleaned = cleaned.split("```json")[-1].split("```")[0].strip()
-            elif "```" in cleaned:
-                cleaned = cleaned.split("```")[-1].split("```")[0].strip()
-
-            # 2. Encontrar límites de llaves
+            # 1. Búsqueda directa del objeto JSON (independiente de bloques Markdown)
             import re
-            start_match = re.search(r'\{', cleaned)
-            end_match = re.findall(r'\}', cleaned)
+            # Buscamos el primer '{' y el último '}' en TODO el texto
+            start_match = re.search(r'\{', raw_text, re.DOTALL)
+            end_idx = raw_text.rfind('}')
             
-            if not start_match or not end_match:
+            if not start_match or end_idx == -1 or end_idx < start_match.start():
+                print(f"⚠️ [V3.11] No se encontraron delimitadores {{ }} en el texto.")
                 return None
                 
-            start_idx = start_match.start()
-            end_idx = cleaned.rfind('}') + 1
-            json_str = cleaned[start_idx:end_idx]
+            json_str = raw_text[start_match.start():end_idx + 1]
 
-            # 3. Limpieza de caracteres de control ilegales en JSON
-            # Reemplazar saltos de línea y tabulaciones REALES dentro de strings por sus versiones escapadas
-            # Pero solo si están dentro de comillas (esto es difícil con regex simple, mejor limpiar todo lo no imprimible)
+            # 2. Limpieza de fundamentales
+            # Eliminar caracteres de control excepto saltos de línea y tabs
             json_str = "".join(ch for ch in json_str if ord(ch) >= 32 or ch in "\n\r\t")
-            
-            # 4. Arreglar comas finales (trailing commas)
+            # Arreglar comas finales
             json_str = re.sub(r',\s*([\]}])', r'\1', json_str)
-            
-            # 5. Arreglar comillas inteligentes
-            json_str = json_str.replace("“", "\"").replace("”", "\"").replace("‘", "'").replace("’", "'")
 
-            # 6. Intento de parseo
+            # 3. Intentos de parseo en cascada
+            data = None
+            errors = []
+            
+            # Usamos JSONDecoder para extraer el primer objeto válido ignorando basura posterior
+            decoder = json.JSONDecoder(strict=False)
+            
+            # Intento de parseo robusto
             try:
-                return json.loads(json_str)
-            except json.JSONDecodeError:
-                # Intento final: quitar saltos de línea literales que rompen strings
-                json_str_no_nl = json_str.replace("\n", "\\n").replace("\r", "")
-                # Pero si rompimos el JSON exterior, esto fallará. Intentamos salvar lo que podamos.
+                # raw_decode retorna (objeto, posición_final)
+                data, index = decoder.raw_decode(json_str)
+                # Si llegamos aquí, tenemos al menos un objeto válido al inicio
+                print(f"✅ [V3.12] JSON decodificado exitosamente (index: {index})")
+            except Exception as e:
+                errors.append(f"RawDecode inicial: {e}")
+                # Intento con corrección de comillas inteligentes si falla el inicial
                 try:
-                    # Este fix es arriesgado pero a veces salva la vida:
-                    # Intentar parsar ignorando errores de escape
-                    return json.loads(json_str, strict=False)
-                except:
-                    return None
+                    json_str_fix = json_str.replace("“", "\\\"").replace("”", "\\\"").replace("‘", "'").replace("’", "'")
+                    data, index = decoder.raw_decode(json_str_fix)
+                    print(f"✅ [V3.12] JSON decodificado con FixQuotes (index: {index})")
+                except Exception as e:
+                    errors.append(f"RawDecode con FixQuotes: {e}")
+
+            if not data:
+                print(f"❌ [V3.12] Fallo total de parseo. Errores: {errors}")
+                # Log truncado para no saturar memoria pero ver el inicio del problema
+                print(f"🔍 [V3.12] Contexto del fallo: {json_str[:1000]}")
+                return None
+
+            # 4. [V3.10] Auto-Recuperación de Estructura MCQ (Refinada)
+            if isinstance(data, dict):
+                content = data.get("content", "")
+                options = data.get("options", [])
+
+                if (not options or len(options) < 2) and "A)" in content:
+                    print("⚠️ [V3.11] Recuperando opciones del content...")
+                    opt_patterns = re.findall(r'([A-D]\).*?)(?=\n|[A-D]\)|$)', content, re.DOTALL)
+                    if opt_patterns:
+                        extracted_opts = [opt.strip() for opt in opt_patterns if len(opt.strip()) > 3]
+                        if len(extracted_opts) >= 2:
+                            data["options"] = extracted_opts
+                            for opt in extracted_opts:
+                                data["content"] = data["content"].replace(opt, "").strip()
+                            print(f"✅ [V3.11] Recuperadas {len(extracted_opts)} opciones.")
+
+            return data
         except Exception as e:
-            print(f"⚠️ [RobustExtract] Error crítico: {e}")
+            print(f"⚠️ [V3.11] Error crítico en extracción: {e}")
             return None
 
     def generate_clinical_challenge(self, topic, full_title, context, angle="Diagnosis"):
@@ -77,34 +98,41 @@ CONTEXTO: {context}
 
 REGLA DE ORO DE LOCALIZACIÓN (CRÍTICO):
 1. Basa TODO el conocimiento en las GUÍAS DE PRÁCTICA CLÍNICA DE COLOMBIA (INS, Ministerio de Salud, Consensos Nacionales).
-2. Si el tema es DENGUE, usa ESTRICTAMENTE el Protocolo INS Colombia 2024. 
-   - RECUERDA: El manejo de choque (Grupo C) es BOLO de cristaloides 20 ml/kg en 15 min. (NO 10 ml/kg).
-3. PROHIBIDO usar guías de Perú (MINSA), México o internacionales si contradicen la norma colombiana.
+
+REGLA ESTRUCTURAL (V3.10) - ¡NO FALLAR!:
+1. El campo 'content' debe contener ÚNICAMENTE el Caso Clínico y la PREGUNTA final.
+2. NUNCA, bajo ninguna circunstancia, incluyas las opciones A, B, C, D dentro del campo 'content'.
+3. Las opciones deben ir exclusivamente en el campo 'options'.
+4. Cada opción en 'options' DEBE ser corta y directa.
 
 TAREA: Genera un CASO CLÍNICO de ALTO NIVEL cognitivo centrado en: {angle}.
 {angle_instruction}
 
-IMPORTANTE: Retorna ÚNICAMENTE el objeto JSON. No incluyas texto antes o después. 
-Evita caracteres de control como saltos de línea reales dentro de los valores de texto del JSON (usa \\n si es necesario).
-
-FORMATO JSON:
+FORMATO JSON REQUERIDO:
 {{
   "mode": "Dr. Epi | DESAFÍO ÉLITE",
   "type": "selection",
   "angle": "{angle}",
-  "content": "### 🩺 Caso Clínico\\n\\n...",
-  "options": ["A) ...", "B) ...", "C) ...", "D) ..."],
+  "content": "### 🩺 Caso Clínico\\n\\n[Resumen del caso]\\n\\n**Pregunta:** [La pregunta aquí]?",
+  "options": ["A) [Texto]", "B) [Texto]", "C) [Texto]", "D) [Texto]"],
   "correct_answer": "X",
   "explanation": "### 🔬 Análisis Clínico\\n...\\n\\n🚀 **ULTRA-RESUMEN [{angle}]**:\\n- ..."
 }}
+
+IMPORTANTE: Retorna ÚNICAMENTE el JSON.
 """
 
         try:
             response = self.model.generate_content(prompt)
             data = self._robust_json_extract(response.text)
             if data:
-                print(f"✅ [Gemini] Desafío generado correctamente.")
-                return data
+                # Doble verificación de campos obligatorios
+                required = ["content", "options", "correct_answer", "explanation"]
+                if all(k in data for k in required):
+                    print(f"✅ [Gemini] Desafío estructurado correctamente.")
+                    return data
+                else:
+                    print(f"⚠️ [Gemini] JSON incompleto tras extracción. Faltan campos: {[k for k in required if k not in data]}")
             else:
                 print(f"❌ [Gemini] No se pudo extraer JSON válido del texto: {response.text[:200]}...")
         except Exception as e:
