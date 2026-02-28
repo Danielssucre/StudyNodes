@@ -274,51 +274,56 @@
         {
             "id": 112,
             "label": "VIH (PrEP)",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO",
+            "sprint_day": 3,
+            "priority": 95,
+            "mastery_level": 3
+        },
+        {
+            "id": 113,
+            "label": "Estado Hiperosmolar",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO",
+            "sprint_day": 3,
+            "priority": 95,
+            "mastery_level": 3
+        },
+        {
+            "id": 114,
+            "label": "Guillain-Barr\u00e9",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO",
+            "sprint_day": 3,
+            "priority": 95,
+            "mastery_level": 3
+        },
+        {
+            "id": 115,
+            "label": "Artritis Reumatoide",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO",
+            "sprint_day": 3,
+            "priority": 95,
+            "mastery_level": 3
+        },
+        {
+            "id": 116,
+            "label": "Colecistitis (Murphy)",
+            "group": "mastered",
+            "title": "\ud83c\udfc6 DOMINADO",
+            "sprint_day": 3,
+            "priority": 95,
+            "mastery_level": 3
+        },
+        {
+            "id": 117,
+            "label": "C\u00f3digo Rojo (4T)",
             "group": "active",
             "title": "\u26a0\ufe0f OBJETIVO ACTUAL",
             "sprint_day": 3,
             "priority": 95,
             "mastery_level": 0
-        },
-        {
-            "id": 113,
-            "label": "Estado Hiperosmolar",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
-            "sprint_day": 3,
-            "priority": 95
-        },
-        {
-            "id": 114,
-            "label": "Guillain-Barr\u00e9",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
-            "sprint_day": 3,
-            "priority": 95
-        },
-        {
-            "id": 115,
-            "label": "Artritis Reumatoide",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
-            "sprint_day": 3,
-            "priority": 95
-        },
-        {
-            "id": 116,
-            "label": "Colecistitis (Murphy)",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
-            "sprint_day": 3,
-            "priority": 95
-        },
-        {
-            "id": 117,
-            "label": "C\u00f3digo Rojo (4T)",
-            "group": "locked",
-            "title": "\ud83d\udcc5 D\u00eda 3 \u2014 24/02 | Prioridad 95",
-            "sprint_day": 3,
-            "priority": 95
         },
         {
             "id": 118,

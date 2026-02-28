@@ -1,8 +1,11 @@
 import google.generativeai as genai
 import json
 import os
+from dotenv import load_dotenv
 
-GEMINI_API_KEY = "AIzaSyCFfDbzMN-0o7Q53peX77L2m1eCrfs65og"
+# Cargar variables de entorno
+load_dotenv()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 class GeminiAdapter:
     def __init__(self):
